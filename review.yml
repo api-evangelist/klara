@@ -1,0 +1,118 @@
+aid: klara
+name: Klara
+review:
+  question: Does Klara expose a documented, self-serve public developer API or FHIR surface?
+  answer: false
+  date: '2026-07-24'
+  reviewer: API Evangelist
+  homeMarket: United States
+findings:
+  summary: |
+    Klara is a US patient-engagement and communication platform (two-way secure
+    messaging, patient texting, appointment reminders/scheduling, intake, telemedicine,
+    workflow automation), now a Modernizing Medicine (ModMed) product. It markets
+    integration with 50+ EHR/PM systems but publishes NO self-serve public developer
+    API, NO FHIR CapabilityStatement, and NO downloadable OpenAPI of its own. No
+    Klara-branded developer portal or docs host exists (developer.klara.com,
+    docs.klara.com, fhir.klara.com all fail DNS/connection). api.klara.com redirects
+    to the practice web app login at doctor.klara.com. Klara's FHIR-style probes
+    return 404 (no metadata / no SMART configuration). The nearest real developer/API
+    surface belongs to the PARENT, ModMed: a partner-gated developer program that
+    governs ModMed's EMA and gGastro EHR/PM platforms — not the Klara messaging
+    product. This is an honest identity-only (built-stub) result: gated, no public
+    Klara API.
+  developerPortal:
+    klaraOwnPortal: false
+    note: No Klara-branded developer portal found. Parent ModMed operates a gated developer portal.
+    parentPortalUrl: https://portal.api.modmed.com/
+    parentPortalStatus: 200
+  fhirCapability:
+    captured: false
+    klaraFhirBase: none
+    metadataProbe: https://api.klara.com/metadata -> 404
+    smartConfigProbe: https://api.klara.com/.well-known/smart-configuration -> 404
+    note: |
+      Klara exposes no FHIR endpoint. Parent ModMed publishes an ONC-certified HL7
+      FHIR R4 API with SMART-on-FHIR (built for the 21st Century Cures Act, US Core,
+      OAuth2, bulk NDJSON export) plus a proprietary FHIR API for the EMA and gGastro
+      EHR/PM platforms, documented behind ModMed's gated portal. That certified FHIR
+      surface is a ModMed EHR product, not attributable to Klara.
+  downloadableSpecs:
+    count: 0
+    provenance: none
+    note: No OpenAPI/Swagger or CapabilityStatement was harvestable for Klara.
+  authModel:
+    klara: Web-app session login (doctor.klara.com); no documented public API auth for Klara.
+    parentModMed: OAuth2 / SMART-on-FHIR (authorization-code + scopes) on the ModMed certified FHIR API.
+  standardsConformance:
+    usCore: parent-modmed-only
+    daVinci: not-documented
+    carin: not-documented
+    ukCore: n/a
+    auCore: n/a
+    note: US Core / SMART-on-FHIR conformance is claimed for ModMed's certified FHIR API, not for Klara itself.
+  accessPosture: gated
+  selfServe: false
+  transports:
+    - protocol: HTTPS Web App
+      scheme: https
+      baseURL: https://doctor.klara.com/
+      documented: false
+      note: Klara practice web application (session login). Not a documented public API.
+    - protocol: FHIR REST (parent ModMed, gated)
+      scheme: https
+      documented: true
+      note: ModMed EMA/gGastro certified HL7 FHIR R4 + SMART-on-FHIR, behind partner-gated portal.api.modmed.com. ModMed EHR product, not Klara.
+  probes:
+    - url: https://www.klara.com/
+      status: 200
+      note: Redirects to ModMed patient-engagement product page.
+    - url: https://api.klara.com/
+      status: 200
+      note: Redirects to doctor.klara.com (practice web app login).
+    - url: https://developer.klara.com/
+      status: 000
+      note: DNS/connection failure — no developer host.
+    - url: https://docs.klara.com/
+      status: 000
+      note: DNS/connection failure — no docs host.
+    - url: https://fhir.klara.com/
+      status: 000
+      note: DNS/connection failure — no FHIR host.
+    - url: https://api.klara.com/metadata
+      status: 404
+      note: No FHIR CapabilityStatement.
+    - url: https://api.klara.com/.well-known/smart-configuration
+      status: 404
+      note: No SMART-on-FHIR configuration.
+    - url: https://support.klara.com/s/
+      status: 200
+      note: Klara support portal (Salesforce).
+    - url: https://status.klara.com/
+      status: 200
+      note: Klara service status page.
+    - url: https://www.modmed.com/klara-privacy/
+      status: 200
+      note: Klara-specific privacy policy on ModMed.
+    - url: https://www.modmed.com/klara-terms-of-service/
+      status: 200
+      note: Klara-specific terms of service on ModMed.
+    - url: https://portal.api.modmed.com/
+      status: 200
+      note: Parent ModMed gated developer portal (EMA/gGastro FHIR + proprietary API). Not Klara.
+sources:
+  - url: https://www.modmed.com/what-we-do/patient-engagement/
+    type: Website
+    note: Klara product page (patient engagement/communication) under ModMed.
+  - url: https://www.modmed.com/documentation-api/
+    type: Documentation
+    note: Redirects to portal.api.modmed.com; describes ModMed EMA/gGastro certified FHIR R4 + SMART-on-FHIR and proprietary API. ModMed products, not Klara.
+  - url: https://www.modmed.com/what-we-do/integrations/synapsys/developers/
+    type: Documentation
+    note: ModMed Synapsys developer program (partner-gated request-access model) and App Marketplace.
+  - url: https://doctor.klara.com/
+    type: Login
+    note: Klara practice web application login.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

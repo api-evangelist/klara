@@ -1,0 +1,47 @@
+aid: klara
+url: https://raw.githubusercontent.com/api-evangelist/klara/refs/heads/main/apis.yml
+name: Klara
+kind: company
+description: >-
+  Klara is a US healthcare patient-engagement and communication platform, now part of
+  Modernizing Medicine (ModMed), that gives medical practices two-way secure messaging,
+  patient texting, appointment reminders and scheduling, intake and forms, telemedicine,
+  and automated workflow tools to reduce phone volume and staff workload. Klara markets
+  integration with 50+ EHR and practice-management systems, but it does not publish its
+  own self-serve public developer API, FHIR CapabilityStatement, or downloadable OpenAPI.
+  Its parent, ModMed, operates a partner-gated developer program at portal.api.modmed.com
+  covering an ONC-certified HL7 FHIR R4 API with SMART-on-FHIR (built for the 21st Century
+  Cures Act, US Core, OAuth2, bulk NDJSON export) plus a proprietary FHIR API for the EMA
+  and gGastro EHR/PM platforms and a Synapsys App Marketplace. That certified API surface
+  belongs to ModMed's EHR products, not to the Klara messaging product itself. Home market
+  is the United States.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Healthcare
+- United States
+- Patient Engagement
+- Patient Communication
+- Secure Messaging
+- Telehealth
+- Scheduling
+- EHR Integration
+created: '2026-07-24'
+modified: '2026-07-24'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.klara.com/
+- type: Login
+  url: https://doctor.klara.com/
+- type: Support
+  url: https://support.klara.com/s/
+- type: StatusPage
+  url: https://status.klara.com/
+- type: TermsOfService
+  url: https://www.modmed.com/klara-terms-of-service/
+- type: PrivacyPolicy
+  url: https://www.modmed.com/klara-privacy/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
