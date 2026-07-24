@@ -1,0 +1,25 @@
+# Klara
+
+> Klara is a US healthcare patient-engagement and communication platform, now part of Modernizing Medicine (ModMed). It gives medical practices two-way HIPAA-compliant secure messaging, patient texting, appointment reminders and scheduling, intake and forms, telehealth, and automated workflow tools that reduce phone volume and staff workload. Klara does not publish its own self-serve public developer API; it integrates with 50+ EHR/practice-management systems. The ONC-certified HL7 FHIR R4 / SMART-on-FHIR developer program belongs to parent ModMed's EHR products, not to the Klara messaging product itself.
+
+## Product
+
+- [Klara / Patient Engagement](https://www.modmed.com/what-we-do/patient-engagement/): The current Klara product page (klara.com now redirects here) — secure messaging, scheduling, reminders, intake, telehealth.
+- [Klara Provider Login](https://doctor.klara.com/): Web application sign-in for practice staff.
+- [Schedule a Demo](https://www.modmed.com/schedule-demo/): Request a walkthrough / start onboarding.
+
+## Support & Status
+
+- [Klara Support / Help Center](https://support.klara.com/s/): Product help and knowledge base.
+- [Klara Status](https://status.klara.com/): Live service status and incident history.
+- [Blog](https://www.modmed.com/resources/blog): ModMed / Klara patient-engagement articles.
+
+## Legal & Compliance
+
+- [Terms of Service](https://www.modmed.com/klara-terms-of-service/)
+- [Privacy Notice](https://www.modmed.com/klara-privacy/): PHI handling; Klara acts as a HIPAA business associate.
+
+## Parent developer program (ModMed EHR — not the Klara product)
+
+- [ModMed Public APIs Docs](https://portal.api.modmed.com/): Partner-gated ONC-certified HL7 FHIR R4 API with SMART-on-FHIR, plus proprietary FHIR/EMA APIs. Belongs to ModMed's EHR/PM products, not to Klara messaging.
+- [ModMed llms.txt](https://portal.api.modmed.com/llms.txt): Machine-readable index of the ModMed developer docs.

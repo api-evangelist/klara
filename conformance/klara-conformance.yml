@@ -1,0 +1,37 @@
+generated: '2026-07-24'
+method: searched
+source: https://www.modmed.com/what-we-do/patient-engagement/
+note: >-
+  Klara is a HIPAA-compliant patient-communication platform that acts as a HIPAA
+  business associate for the medical practices it serves; secure messaging, PHI
+  handling, and encryption in transit and at rest are core, publicly stated
+  posture. Klara publishes no self-serve public API, so API-level cross-cutting
+  standards (OAuth2/OIDC, FHIR, RFC 9457) are not applicable to the Klara product
+  itself. The ONC-certified HL7 FHIR R4 / SMART-on-FHIR surface belongs to the
+  parent ModMed EHR products (portal.api.modmed.com), not to Klara messaging.
+standards:
+- id: hipaa
+  conforms: true
+  evidence: >-
+    Klara markets HIPAA-compliant secure messaging and operates as a HIPAA
+    business associate; HIPAA stated on the live patient-engagement product page,
+    PHI handling governed by the published Klara privacy notice.
+- id: soc2
+  conforms: false
+  evidence: >-
+    SOC 2 is referenced for ModMed texting by third-party sources but is not
+    published as a first-party Klara certification page; recorded as unverified.
+- id: oauth2
+  conforms: false
+  evidence: no self-serve public Klara API surface
+- id: oidc
+  conforms: false
+  evidence: no self-serve public Klara API surface
+- id: fhir-r4
+  conforms: false
+  evidence: >-
+    FHIR R4 / SMART-on-FHIR belongs to parent ModMed EHR products, not the Klara
+    messaging product
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no published Klara API/spec to assert error format against

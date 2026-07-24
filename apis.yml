@@ -30,6 +30,14 @@ modified: '2026-07-24'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/klara-domain-security.yml
+- type: Conformance
+  url: conformance/klara-conformance.yml
+- type: Compliance
+  url: https://www.modmed.com/what-we-do/patient-engagement/
+- type: LLMsTxt
+  url: llms/klara-llms.txt
 - type: Website
   url: https://www.klara.com/
 - type: Login
@@ -38,6 +46,10 @@ common:
   url: https://support.klara.com/s/
 - type: StatusPage
   url: https://status.klara.com/
+- type: Blog
+  url: https://www.modmed.com/resources/blog
+- type: SignUp
+  url: https://www.modmed.com/schedule-demo/
 - type: TermsOfService
   url: https://www.modmed.com/klara-terms-of-service/
 - type: PrivacyPolicy
