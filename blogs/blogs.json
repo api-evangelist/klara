@@ -1,0 +1,21 @@
+{
+  "repo": "klara",
+  "feeds": [
+    {
+      "source": "https://status.klara.com/history.atom",
+      "feed_url": "https://status.klara.com/history.atom",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://status.klara.com/",
+      "feed_url": "https://status.klara.com/history.atom",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 25,
+  "fetched": "2026-08-01T15:49:00Z"
+}
