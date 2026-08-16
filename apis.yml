@@ -26,7 +26,7 @@ tags:
 - Scheduling
 - EHR Integration
 created: '2026-07-24'
-modified: '2026-07-24'
+modified: '2026-08-15'
 specificationVersion: '0.19'
 apis: []
 common:
@@ -35,9 +35,27 @@ common:
 - type: Conformance
   url: conformance/klara-conformance.yml
 - type: Compliance
-  url: https://www.modmed.com/what-we-do/patient-engagement/
+  url: https://www.modmed.com/what-we-do/patient-communication/
 - type: LLMsTxt
   url: llms/klara-llms.txt
+- type: WellKnown
+  url: well-known/klara-well-known.yml
+- type: Packages
+  url: packages/klara-packages.yml
+- type: Lifecycle
+  url: lifecycle/klara-lifecycle.yml
+- type: Components
+  url: components/klara-components.yml
+- type: Plans
+  url: plans/klara-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/klara-rate-limits.yml
+- type: VulnerabilityDisclosure
+  url: security/klara-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.modmed.com/security/
+- type: GitHubOrganization
+  url: https://github.com/klara
 - type: Website
   url: https://www.klara.com/
 - type: Login
@@ -57,3 +75,30 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-15'
+  status: minimal
+  artifacts_added: 8
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: marketplace-only
+  detail: >-
+    Klara has no developer site of its own — developers.klara.com, docs.klara.com and
+    developer.klara.com do not resolve in DNS, klara.com 302s every path to the ModMed
+    product page, and the live first-party API host api.klara.com 404s every discovery
+    path because it is the private backend for doctor.klara.com; the only Klara
+    integration surface published anywhere is a partner-app listing inside ModMed's
+    synapSYS marketplace, backed by the parent's portal.api.modmed.com FHIR/EMA APIs.
+  evidence:
+  - url: https://klara.com/
+    status: 302
+  - url: https://developers.klara.com/
+    status: 0
+  - url: https://api.klara.com/openapi.json
+    status: 404
+  - url: https://support.klara.com/en/articles/4210809-getting-started-with-modernizing-medicine-integration
+    status: 401
+  - url: https://synapsys.modmed.com/s/synapsys/0TU4M0000004CCRWA2/klara
+    status: 200
+  checked: '2026-08-15'
