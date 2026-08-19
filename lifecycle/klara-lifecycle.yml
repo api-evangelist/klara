@@ -1,0 +1,82 @@
+generated: '2026-08-15'
+method: searched
+source: https://status.klara.com/
+note: >-
+  Klara publishes a first-party, Klara-branded status page and it carries a
+  machine-readable Statuspage v2 API that answers anonymously — the strongest
+  operational-transparency signal this provider has. There is no published API
+  versioning policy, deprecation policy, Sunset/Deprecation header support, or SLA,
+  because Klara publishes no public developer API at all (see x-coverage in apis.yml).
+status_page: https://status.klara.com/
+status_page_machine_readable:
+  api: https://status.klara.com/api/v2/summary.json
+  status_endpoint: https://status.klara.com/api/v2/status.json
+  platform: Atlassian Statuspage
+  page_id: x3n87pz17zln
+  page_name: Klara Service Status
+  time_zone: America/New_York
+  http_status: 200
+  content_type: application/json
+  probed: '2026-08-15'
+components:
+- name: Web Browser Access
+  description: >-
+    Staff and patient interaction with the Klara user interface on doctor.klara.com
+    or patient.klara.com. Excludes the iOS app.
+- name: Mobility App
+  description: Install and use the Klara iOS or Android app.
+- name: Messaging
+  description: Send and receive messages, documents and forms to/from patients and other staff.
+- name: EHR/PM Data Import/Export
+  description: >-
+    Klara connecting to an EHR/PM system for patient sync, message and document
+    export, and automation.
+- name: Eforms
+- name: Video Visits
+  description: Start, join and complete video visits.
+- name: Phone System Integration
+  description: Connect Klara with phone systems to transfer voicemails and route callers to text.
+- name: Klara Website Widget
+  description: Patients use the web messenger to create an account and message the team.
+- name: Chrome Extension
+  description: Staff open Klara next to another web page in Chrome.
+- name: Reporting
+- name: Other
+component_count: 11
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: No public API, therefore no published API versioning scheme.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    No deprecation policy and no RFC 8594 Sunset/Deprecation header support is
+    published. No `type: Deprecation` pointer is wired.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No uptime target or SLA is published on the status page or on the ModMed product
+    pages; commercial terms sit behind the demo/sales motion.
+changelog:
+  url: null
+  note: >-
+    No dated Klara release-notes or changelog surface was found. The Klara Help Center
+    (support.klara.com) is a Salesforce Experience Cloud SPA whose legacy article URLs
+    now answer 401, so any release notes it carries are not publicly readable.
+deprecated_operations: []
+brand_lifecycle:
+  note: >-
+    Klara itself is mid-absorption into its parent. klara.com and www.klara.com now
+    302 every path — including every /.well-known/ path — to
+    https://www.modmed.com/what-we-do/patient-engagement/, and ModMed markets the
+    product as "ModMed Patient Engagement, powered by Klara". The klara.com domain
+    survives only for the application hosts (doctor., patient., api., widget.,
+    support., status.).
+  evidence:
+  - url: https://klara.com/
+    status: 302
+  - url: https://www.klara.com/pricing
+    status: 302

@@ -1,0 +1,97 @@
+generated: '2026-08-15'
+method: searched
+source: >-
+  npm registry, PyPI, RubyGems, GitHub org api.github.com/orgs/klara,
+  iTunes Search API, Google Play listing for com.klara.app
+note: >-
+  Klara publishes NO first-party client library in any public package registry.
+  Searched npm (klara, klara-api, klara-sdk, @klara/sdk), PyPI, RubyGems, and the
+  Klara GitHub organization. The two registry names that do resolve belong to other
+  projects and are recorded below as explicit negatives so a future round does not
+  mistake them for Klara: npm `klara` is a UXPin design-asset downloader by
+  marcintreder, and PyPI `klara` is a static-analysis/test-generation library by Ho
+  Guo Xian. Klara's own GitHub organization (github.com/klara, blog http://klara.com,
+  Berlin — Klara's founding city) is real and first-party but contains six forks only
+  (twilio-ruby, mimemagic, i18n, athena_health, xk6-amqp,
+  aws-securityhub-jira-software-integration) and zero published Klara libraries. It is
+  useful as stack evidence — a Ruby/Rails codebase, Twilio messaging, AMQP — which is
+  consistent with the Rails 404 page served by api.klara.com.
+packages: []
+package_count: 0
+official_sdk_count: 0
+sdk_pointer_emitted: false
+sdk_pointer_note: >-
+  No `type: SDKs` pointer is wired in apis.yml because Klara ships no client library.
+  Emitting one would credit an SDK that does not exist.
+distributions:
+- kind: mobile-app
+  platform: ios
+  name: Klara – Patient communication
+  publisher: Klara Technologies Inc.
+  bundle_id: com.klara.doctor-app
+  registry: app-store
+  url: https://apps.apple.com/us/app/klara-patient-communication/id1082300408
+  version: 1.31.0
+  published: '2025-10-23'
+  official: true
+  client_library: false
+  note: >-
+    End-user application, not a developer SDK. Version and date read from the iTunes
+    Search API (currentVersionReleaseDate).
+- kind: mobile-app
+  platform: android
+  name: Klara – Patient communication
+  registry: google-play
+  package: com.klara.app
+  url: https://play.google.com/store/apps/details?id=com.klara.app
+  version: 1.31.0
+  published: '2025-10-21'
+  official: true
+  client_library: false
+  note: >-
+    End-user application, not a developer SDK. Version and "Updated on Oct 21, 2025"
+    read from the Google Play listing.
+- kind: browser-extension
+  platform: chrome
+  name: Klara Chrome Extension
+  registry: chrome-web-store
+  url: null
+  version: null
+  published: null
+  official: true
+  client_library: false
+  note: >-
+    Klara's own status page lists a "Chrome Extension" component (staff open Klara
+    beside another page in Chrome), so the extension is real and first-party, but the
+    Chrome Web Store detail URL could not be resolved anonymously
+    (chromewebstore.google.com search 200 with no first-party detail link,
+    chrome-stats.com 403). Version and publish date recorded as null: checked, nothing
+    readable — not "not checked".
+negatives:
+- registry: npm
+  name: klara
+  url: https://registry.npmjs.org/klara
+  first_party: false
+  reason: >-
+    UXPin design-system asset downloader, maintainer marcin@uxpin.com, repo
+    github.com/marcintreder/klara. Different company.
+- registry: pypi
+  name: klara
+  url: https://pypi.org/pypi/klara/json
+  first_party: false
+  reason: >-
+    "Automatic test case generation and static analysis library", author Ho Guo Xian,
+    repo github.com/usagitoneko97/klara. Different project.
+- registry: rubygems
+  name: klara
+  status: 404
+  first_party: false
+source_code:
+  github_organization: https://github.com/klara
+  first_party: true
+  evidence: >-
+    api.github.com/orgs/klara reports blog "http://klara.com" and location "Berlin,
+    Germany"; Klara was founded in Berlin. Six public repositories, all forks, none a
+    Klara library.
+  public_repos: 6
+  first_party_libraries: 0

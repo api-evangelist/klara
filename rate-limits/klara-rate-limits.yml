@@ -1,0 +1,30 @@
+generated: '2026-08-15'
+method: searched
+source: >-
+  live probes of api.klara.com; https://www.modmed.com/what-we-do/patient-engagement/;
+  https://support.klara.com/
+note: >-
+  No rate limits are published, and there is no public API to publish them for. Klara
+  runs a real production API host — api.klara.com, DNS CNAME core.shared.prod.klara.com,
+  serving the Rails framework 404 page — but it is the private backend for
+  doctor.klara.com and patient.klara.com, not a developer surface: it 301s / to the
+  provider application and 404s every documented and undocumented discovery path
+  (/openapi.json, /swagger.json, /v1/openapi.json, /api-docs, /docs, /redoc, /graphql,
+  /v1, /v2, /api, /api/v1, /health, /status, /ping). No unauthenticated response
+  carried an X-RateLimit-*, RateLimit-* or Retry-After header to observe. Recorded as
+  an honest zero rather than omitted.
+limits: []
+limit_count: 0
+headers: []
+exhaustion_status_code: null
+retry_after_supported: null
+evidence:
+- url: https://api.klara.com/
+  status: 301
+  redirects_to: https://doctor.klara.com/
+- url: https://api.klara.com/openapi.json
+  status: 404
+- url: https://api.klara.com/v1
+  status: 404
+- url: https://api.klara.com/health
+  status: 404

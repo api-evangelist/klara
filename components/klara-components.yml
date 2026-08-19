@@ -1,0 +1,83 @@
+generated: '2026-08-15'
+method: searched
+source: >-
+  https://status.klara.com/api/v2/summary.json,
+  https://support.klara.com/en/articles/762973-set-up-klara-web-messenger,
+  live probes of widget.klara.com
+note: >-
+  Klara ships client-side embeddable surfaces even though it publishes no developer
+  API. The marquee one is the Klara Web Messenger — a JavaScript snippet a practice
+  pastes into the footer of its own website so patients can start a conversation
+  without logging in. It is a genuine embeddable component and Klara treats it as a
+  first-class service (its own component, "Klara Website Widget", on the status page),
+  but the embed code is issued only to authenticated practices: widget.klara.com 302s
+  to the doctor.klara.com authorization flow, and every script path under it answers
+  401. The snippet itself is therefore not publicly readable and is NOT reproduced or
+  guessed here.
+families:
+- family: Web Messenger
+  kind: embeddable-widget
+  name: Klara Web Messenger (Klara Website Widget)
+  description: >-
+    Chat/messaging widget embedded on a practice's own website. Can render collapsed
+    behind a chat-bubble icon or be triggered from a custom button. Patients create an
+    account and message the care team from the widget without downloading anything.
+  install: >-
+    Practice staff sign in to Klara, open widget.klara.com, customise the widget, copy
+    the generated embed code (or email it to their web agency), and paste it into the
+    <footer> of their website.
+  generator_url: https://widget.klara.com/
+  generator_http_status: 302
+  generator_redirect: >-
+    https://doctor.klara.com/#/authorize/code/... (provider login)
+  loader_url: null
+  loader_note: >-
+    The loader script URL is not publicly discoverable. widget.klara.com/widget.js,
+    /klara.js, /embed.js, /loader.js and /static/widget.js all return 401; cdn.klara.com
+    and static.klara.com return 403 (S3-style application/xml). Recorded as null:
+    checked, nothing readable.
+  version: null
+  version_note: >-
+    Unpinned and unreadable — a practice embedding this cannot tell which build it is
+    serving to patients either.
+  docs: https://support.klara.com/en/articles/762973-set-up-klara-web-messenger
+  docs_http_status: 401
+  docs_note: >-
+    The setup article is indexed publicly but the Help Center now answers 401 for the
+    legacy /en/articles/ paths after the migration to Salesforce Experience Cloud.
+  status_page_component: Klara Website Widget
+  official: true
+- family: Browser Extension
+  kind: browser-extension
+  name: Klara Chrome Extension
+  description: >-
+    Lets staff open Klara side-by-side with another web page in Chrome — typically the
+    patient chart in an EHR — so messages and charting happen in one window.
+  install: null
+  install_note: >-
+    Chrome Web Store detail URL not resolvable anonymously; see packages/klara-packages.yml.
+  version: null
+  status_page_component: Chrome Extension
+  official: true
+- family: Telehealth
+  kind: hosted-surface
+  name: Klara Video Visits
+  description: >-
+    Browser-based video visits patients join from a link, with no download and no
+    account creation required.
+  install: null
+  status_page_component: Video Visits
+  official: true
+- family: Forms
+  kind: hosted-surface
+  name: Klara Eforms
+  description: Digital intake and consent forms sent to patients and returned into the thread.
+  install: null
+  status_page_component: Eforms
+  official: true
+component_count: 4
+loader_libraries: []
+gated: true
+gated_reason: >-
+  Every embed snippet and loader URL is issued behind the provider login at
+  widget.klara.com; nothing about the client-side contract is published.

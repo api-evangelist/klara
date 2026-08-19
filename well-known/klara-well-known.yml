@@ -1,0 +1,118 @@
+generated: '2026-08-15'
+method: probed
+source: live HTTP probes of every Klara-controlled host
+note: >-
+  Probed the RFC 8615 /.well-known/ surface on every host Klara controls. Only one
+  path returned a real machine-readable document: the Salesforce Experience Cloud
+  OIDC discovery document served from support.klara.com (the Klara Help Center),
+  whose issuer is https://support.klara.com. It describes the login identity
+  provider for the help centre, NOT a Klara product API — its scopes_supported list
+  is the stock Salesforce platform scope set (cdp_*, wave_api, pardot_api, ...), not
+  Klara scopes. status.klara.com returns a 200 security.txt, but that document is
+  Atlassian's (Canonical https://www.atlassian.com/.well-known/security.txt,
+  Contact security@atlassian.com) served by the Statuspage vendor, so it is recorded
+  here as an observed vendor document and is NOT credited to Klara. Klara's own
+  disclosure route is the parent's Coordinated Security Vulnerability Program —
+  see security/klara-vulnerability-disclosure.yml.
+hosts:
+- host: https://api.klara.com
+  note: >-
+    Live first-party Klara production API host (DNS CNAME core.shared.prod.klara.com),
+    running a Rails application that 301s / to doctor.klara.com. Every /.well-known/
+    path returns the framework 404 page. No public contract is served here.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://support.klara.com
+  note: Klara Help Center, hosted on Salesforce Experience Cloud.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: klara-support-openid-configuration.json
+    issuer: https://support.klara.com
+    note: >-
+      Real OIDC discovery document, served from a Klara-controlled host. Salesforce
+      Experience Cloud community identity provider for the help centre login; not an
+      API authorization server for any Klara product API.
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+- host: https://status.klara.com
+  note: Klara Service Status, hosted on Atlassian Statuspage.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    credited_to_klara: false
+    note: >-
+      Atlassian's own security.txt served by the Statuspage platform. Canonical
+      https://www.atlassian.com/.well-known/security.txt, Contact
+      security@atlassian.com, Policy https://www.atlassian.com/trust/security/report-a-vulnerability.
+      Vendor document, not a Klara publication — deliberately not saved and not
+      wired to a SecurityTxt pointer.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.klara.com
+  note: >-
+    Marketing host. Every path, including every /.well-known/ path, answers 302 to
+    https://www.modmed.com/what-we-do/patient-engagement/ — the brand has been folded
+    into the ModMed site. No document is served.
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+  - path: /.well-known/openid-configuration
+    status: 302
+  - path: /.well-known/agent-card.json
+    status: 302
+  - path: /.well-known/agent.json
+    status: 302
+- host: https://doctor.klara.com
+  note: Provider web application. All unauthenticated paths answer 403 (application/xml, S3/CloudFront).
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+agent_card:
+  found: false
+  note: >-
+    /.well-known/agent-card.json and the legacy /.well-known/agent.json were probed on
+    every host above. No 200 returned a JSON object with AgentCard shape, so no a2a/
+    artifact was written — an agent card asserts the provider serves it, and is never
+    authored on a provider's behalf.
