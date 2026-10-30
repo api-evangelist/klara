@@ -1,4 +1,4 @@
-# Klara (klara)
+# Klara
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,42 +64,101 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Klara is a US healthcare patient-engagement and communication platform, now part of Modernizing Medicine (ModMed). It gives medical practices two-way secure messaging, patient texting, appointment reminders and scheduling, intake/forms, telemedicine, and workflow automation to reduce phone volume and staff workload, and markets integration with 50+ EHR and practice-management systems.
+Klara is a US healthcare patient-engagement and communication platform, now part of Modernizing Medicine (ModMed), that gives medical practices two-way secure messaging, patient texting, appointment reminders and scheduling, intake and forms, telemedicine, and automated workflow tools to reduce phone volume and staff workload. Klara markets integration with 50+ EHR and practice-management systems, but it does not publish its own self-serve public developer API, FHIR CapabilityStatement, or downloadable OpenAPI. Its parent, ModMed, operates a partner-gated developer program at portal.api.modmed.com covering an ONC-certified HL7 FHIR R4 API with SMART-on-FHIR (built for the 21st Century Cures Act, US Core, OAuth2, bulk NDJSON export) plus a proprietary FHIR API for the EMA and gGastro EHR/PM platforms and a Synapsys App Marketplace. That certified API surface belongs to ModMed's EHR products, not to the Klara messaging product itself. Home market is the United States.
 
-Klara does not publish its own self-serve public developer API, FHIR CapabilityStatement, or downloadable OpenAPI. Its parent ModMed operates a partner-gated developer program (portal.api.modmed.com) with an ONC-certified HL7 FHIR R4 API + SMART-on-FHIR and a proprietary FHIR API for the EMA and gGastro EHR/PM platforms — that certified API surface belongs to ModMed's EHR products, not the Klara messaging product. Home market: United States.
+**Areas:** Healthcare · United States · Patient Engagement · Patient Communication · Secure Messaging · Telehealth · Scheduling · EHR Integration
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/klara/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/klara/refs/heads/main/apis.yml)
+## Klara on APIs.io
 
-## Tags
+Everything profiled for Klara is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/klara/](https://apis.io/providers/klara/)** — or go straight to one of the APIs or properties below.
 
-- Healthcare
-- United States
-- Patient Engagement
-- Patient Communication
-- Secure Messaging
-- Telehealth
-- Scheduling
-- EHR Integration
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-24
-- **Modified:** 2026-07-24
+#### Security (2)
 
-## APIs
+Authentication, trust centre, and vulnerability disclosure.
 
-No documented, self-serve public Klara API was found. Klara is a patient-communication product whose integrations are delivered through private/partner connections and through its parent ModMed's gated developer program, not through a public Klara developer API.
+- [Klara Domain Security](https://apis.io/security/klara/klara-domain-security/)
+- [Klara Vulnerability Disclosure](https://apis.io/security/klara/klara-vulnerability-disclosure/)
 
-## Common Properties
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Klara Plans Pricing](https://apis.io/plans/klara/klara-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Klara Rate Limits](https://apis.io/rate-limits/klara/klara-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.klara.com/)
-- [Login](https://doctor.klara.com/)
+- [Sign up](https://www.modmed.com/schedule-demo/)
 - [Support](https://support.klara.com/s/)
-- [Status Page](https://status.klara.com/)
-- [Terms of Service](https://www.modmed.com/klara-terms-of-service/)
-- [Privacy Policy](https://www.modmed.com/klara-privacy/)
+- [Blog](https://www.modmed.com/resources/blog)
+- [Security](https://www.modmed.com/security/)
+- [Compliance](https://www.modmed.com/what-we-do/patient-communication/)
+- [Terms of service](https://www.modmed.com/klara-terms-of-service/)
+- [Privacy policy](https://www.modmed.com/klara-privacy/)
+- [GitHub](https://github.com/klara)
+- [Status](https://status.klara.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 23.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 42.1 |
+
+**Agent readiness 13.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 32.8** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/klara/](https://apis.io/providers/klara/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Klara: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/klara/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
